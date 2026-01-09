@@ -1,0 +1,39 @@
+# 1. 필수: 라이브러리 설치 폴더 (절대 올리면 안 됨)
+node_modules/
+
+# 2. 빌드 결과물 (React 빌드, Electron 실행 파일 등)
+/build
+/dist
+/out
+/release
+
+# 3. 로컬 환경 설정 & 보안 (비밀번호, 포트 설정 등)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 4. 데이터베이스 (SQLite 파일) - ★중요★
+# DB 파일은 내 컴퓨터에만 있어야 합니다. (올리면 충돌 남)
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# 5. OS 및 에디터 임시 파일 (지저분한 것들)
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 6. 로그 파일 (에러 기록 등)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# 7. Electron 관련 캐시
+/.electron-builder
