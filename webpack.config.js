@@ -2,11 +2,15 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const isProduction = process.env.NODE_ENV === "production";
+
 module.exports = {
 	entry: path.join(__dirname, "src", "index.js"),
-	mode: "development",
+	mode: isProduction ? "production" : "development",
 	output: {
 		path: path.resolve(__dirname, "dist"),
+		filename: "bundle.js",
+		publicPath: isProduction ? "./" : "/",
 	},
 	module: {
 		rules: [
@@ -36,8 +40,9 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: path.join(__dirname, "public", "index.html"),
+			filename: "index.html",
 		}),
-		new webpack.HotModuleReplacementPlugin(),
+		...(isProduction ? [] : [new webpack.HotModuleReplacementPlugin()]),
 	],
 	devServer: {
 		hot: true,
@@ -48,4 +53,5 @@ module.exports = {
 		},
 		historyApiFallback: true,
 	},
+	target: "electron-renderer",
 };

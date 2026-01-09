@@ -6,7 +6,12 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "webpack-dev-server --mode development --host 0.0.0.0 --port 1205",
-		"electron": "concurrently \"npm start\" \"wait-on http://localhost:1205 && electron .\""
+		"build": "NODE_ENV=production webpack --mode production",
+		"build:win": "set NODE_ENV=production && webpack --mode production",
+		"electron": "concurrently \"npm start\" \"wait-on http://localhost:1205 && electron .\"",
+		"electron:dev": "concurrently \"npm start\" \"wait-on http://localhost:1205 && electron .\"",
+		"electron:prod": "npm run build:win && electron .",
+		"rebuild": "electron-rebuild -f -w better-sqlite3"
 	},
 	"keywords": [],
 	"author": "",
