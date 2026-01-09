@@ -2,10 +2,11 @@
 	"name": "client",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "main.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "webpack-dev-server --mode development"
+		"start": "webpack-dev-server --mode development --host 0.0.0.0 --port 1205",
+		"electron": "concurrently \"npm start\" \"wait-on http://localhost:1205 && electron .\""
 	},
 	"keywords": [],
 	"author": "",
@@ -16,16 +17,21 @@
 		"@babel/preset-env": "^7.19.0",
 		"@babel/preset-react": "^7.18.6",
 		"babel-loader": "^8.2.5",
+		"concurrently": "^9.2.1",
 		"css-loader": "^6.7.1",
+		"electron": "^39.2.7",
+		"electron-rebuild": "^3.2.9",
 		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^5.5.0",
 		"style-loader": "^3.3.1",
+		"wait-on": "^9.0.3",
 		"webpack": "^5.74.0",
 		"webpack-cli": "^4.10.0",
 		"webpack-dev-server": "^4.10.1"
 	},
 	"dependencies": {
 		"axios": "^0.27.2",
+		"better-sqlite3": "^12.5.0",
 		"bootstrap": "^5.2.1",
 		"react": "^18.2.0",
 		"react-bootstrap": "^2.5.0",
