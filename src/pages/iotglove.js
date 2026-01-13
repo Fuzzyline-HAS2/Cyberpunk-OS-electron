@@ -3,6 +3,13 @@ import axios from "axios";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
+// Electron 환경 감지 및 axios baseURL 설정
+const isElectron = window.require ? true : false;
+if (isElectron) {
+	// Electron 환경에서는 직접 백엔드 서버로 요청
+	axios.defaults.baseURL = 'http://localhost:5000';
+}
+
 import "./css/iotglove.css";
 import "./css/text.css";
 import "./css/badge.css";
