@@ -6,19 +6,6 @@ const electron = window.require ? window.require('electron') : null;
 const ipcRenderer = electron ? electron.ipcRenderer : null;
 
 const Home = () => {
-
-    const handleAddProduct = async () => {
-        if (!ipcRenderer) return alert("Electron이 아닙니다!");
-
-
-    };
-
-    // ★ 테스트 2: 저장된 목록 불러오기
-    const handleGetList = async () => {
-        if (!ipcRenderer) return;
-        
-    };
-
     return (
         <div>
             <h1>홈</h1>
